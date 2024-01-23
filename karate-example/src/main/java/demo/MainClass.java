@@ -14,15 +14,12 @@ import org.apache.commons.io.FileUtils;
 
 public class MainClass {
     public static void main(String[] args){
-        // Retrieve the feature file path from the system property
-//        String featureFilePath = System.getProperty("featurePath");
         String featureFilePath=args[0];
-        System.out.println(featureFilePath);
-        // Check if the feature file path is provided
         if (featureFilePath == null || featureFilePath.isEmpty()) {
             System.out.println("Please provide the path of the feature file.");
             System.exit(1);
         }
+
         Results results = Runner.path(featureFilePath)
                 .outputCucumberJson(true)
                 .parallel(5);
